@@ -12,10 +12,12 @@ import './list-actions.style.scss';
 export const ListActions = () => {
   const [openDialog, setOpenDialog] = useState(false);
 
+  // Esconder el modal luego del submit.
   const handleSubmit = () => {
     setOpenDialog(false);
   };
 
+  // Cerrar el modal al presionar la X.
   const closeDialogHandler = () => {
     setOpenDialog(false);
   };

@@ -1,5 +1,12 @@
 import './button.style.scss';
 
+/*
+ * children: Contenido del botón.
+ * left: Contenido a la izquierda del texto.
+ * right: Contenido a la derecha del texto.
+ * onClick: Función para controlar el evento click.
+ */
+
 export const Button = ({ children, left, right, onClick }) => {
   return (
     <button className="button" onClick={onClick}>

@@ -12,13 +12,18 @@ export const Search = () => {
   const [clear, setClear] = useState(false);
   const dispatch = useDispatch();
 
+  // Realiza la búsqueda luego de 3 caracteres.
   const onChangeHandler = (event) => {
     if (event.target.value.length >= 3) {
       dispatch(searchUser(event.target.value));
       setClear(true);
+    } else {
+      setClear(false);
+      dispatch(clearSearch());
     }
   };
 
+  // Limpiar input y el store del resultado de la búsqueda.
   const clearHandler = () => {
     inputRef.current.value = '';
     setClear(false);

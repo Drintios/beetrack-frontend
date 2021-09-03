@@ -6,6 +6,12 @@ import { deleteUser } from '../../redux/users/users.slice';
 
 import './user.style.scss';
 
+/*
+ * id: Id del usuario.
+ * image: Enlace de la imagen para el avatar.
+ * name: Nombre de usuario.
+ */
+
 export const User = ({ id, image, name }) => {
   const dispatch = useDispatch();
 

@@ -17,6 +17,10 @@ const initialState = {
   pendingUpdate: false,
 };
 
+/*
+ * limit: Cantidad de usuarios a devolver en el request.
+ * pagina: Pagina actual a devolver.
+ */
 export const fetchUsers = createAsyncThunk(
   'users/fetchUsers',
   async ({ limit = 8, page = 1 }) => {
@@ -36,6 +40,7 @@ export const fetchUsers = createAsyncThunk(
   }
 );
 
+// query: Texto a buscar.
 export const searchUser = createAsyncThunk(
   'users/searchUser',
   async (query) => {
@@ -53,6 +58,7 @@ export const searchUser = createAsyncThunk(
   }
 );
 
+// data: Datos de usuario a guardar.
 export const createUser = createAsyncThunk('users/createUser', async (data) => {
   try {
     const response = await fetch(`${API_URL}/api/users`, {
@@ -73,6 +79,7 @@ export const createUser = createAsyncThunk('users/createUser', async (data) => {
   }
 });
 
+// userId: id del usuario a eliminar.
 export const deleteUser = createAsyncThunk(
   'users/deleteUser',
   async (userId) => {
@@ -97,6 +104,7 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     clearSearch: (state) => {
+      // Se limpia la búsqueda y se muestra la lista de usuarios.
       state.searchResult = [];
       state.users = state.usersResult;
     },
@@ -110,6 +118,7 @@ const usersSlice = createSlice({
       state.error = null;
     },
     [fetchUsers.fulfilled]: (state, action) => {
+      // Se actualiza el resultado y los usuarios a mostrar.
       state.usersResult = action.payload;
       state.users = state.usersResult;
       state.loading = false;
@@ -123,6 +132,7 @@ const usersSlice = createSlice({
       state.error = null;
     },
     [searchUser.fulfilled]: (state, action) => {
+      // Se actualiza el resultado de la búsqueda y los usuarios a mostrar.
       state.searchResult = action.payload;
       state.users = state.searchResult;
       state.loading = false;

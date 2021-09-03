@@ -29,6 +29,7 @@ export const UsersList = () => {
   };
 
   useEffect(() => {
+    // Obtener los usuarios y limpiar actualizaciones pendientes en cada actualización.
     dispatch(fetchUsers({ limit: 8, page }));
     dispatch(clearPendingUpdate());
   }, [dispatch, page, pendingUpdate]);
@@ -58,6 +59,7 @@ export const UsersList = () => {
       <Spacer space="1rem" />
       <Pagination
         currentPage={page}
+        enableNext={users.length > 7}
         nextPage={nextPageHandler}
         prevPage={prevPageHandler}
       />

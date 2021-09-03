@@ -4,6 +4,13 @@ import { mdiCloseThick } from '@mdi/js';
 
 import './dialog.style.scss';
 
+/*
+ * open: Controla la visibilidad del modal.
+ * children: Componente con el contenido del modal.
+ * title: Titulo para el modal.
+ * closeHandler: Función para cerrar el modal.
+ */
+
 export const Dialog = ({ open, children, title, closeHandler }) => {
   const renderDialog = () => {
     if (open) {

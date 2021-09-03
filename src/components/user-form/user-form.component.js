@@ -10,6 +10,8 @@ import { Spacer } from '../utils/spacer.component';
 
 import './user-form.style.scss';
 
+// onSubmit: Efectos secundarios al enviar los datos.
+
 export const UserForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
   const [userData, setUserData] = useState({
