@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { createUser } from '../../redux/users/users.slice';
+import { createUser } from '../../redux/users/users.thunk';
 import { Button } from '../button/button.component';
 import { Input } from '../input/input.component';
 import { Textarea } from '../textarea/textarea.component';

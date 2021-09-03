@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import Icon from '@mdi/react';
 import { mdiAccount } from '@mdi/js';
 
-import { deleteUser } from '../../redux/users/users.slice';
+import { deleteUser } from '../../redux/users/users.thunk';
 
 import './user.style.scss';
 

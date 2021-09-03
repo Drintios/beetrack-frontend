@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers, clearPendingUpdate } from '../../redux/users/users.slice';
+import { fetchUsers } from '../../redux/users/users.thunk';
+import { clearPendingUpdate } from '../../redux/users/users.slice';
 import {
   selectUsers,
   selectPendingUpdate,

@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchUser, clearSearch } from '../../redux/users/users.slice';
+import { searchUser } from '../../redux/users/users.thunk';
+import { clearSearch } from '../../redux/users/users.slice';
 
 import Icon from '@mdi/react';
 import { mdiMagnify, mdiCloseCircle } from '@mdi/js';
