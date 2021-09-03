@@ -4,6 +4,7 @@ import { fetchUsers, searchUser, createUser, deleteUser } from './users.thunk';
 const initialState = {
   loading: false,
   error: null,
+  usersLoading: false,
   users: [],
   searchResult: [],
   usersResult: [],
@@ -25,18 +26,18 @@ const usersSlice = createSlice({
   },
   extraReducers: {
     [fetchUsers.pending]: (state, action) => {
-      state.loading = true;
+      state.usersLoading = true;
       state.error = null;
     },
     [fetchUsers.fulfilled]: (state, action) => {
       // Se actualiza el resultado y los usuarios a mostrar.
       state.usersResult = action.payload;
       state.users = state.usersResult;
-      state.loading = false;
+      state.usersLoading = false;
     },
     [fetchUsers.rejected]: (state, action) => {
       state.error = action.error.message;
-      state.loading = false;
+      state.usersLoading = false;
     },
     [searchUser.pending]: (state, action) => {
       state.loading = true;

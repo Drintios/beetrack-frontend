@@ -4,6 +4,7 @@ import { fetchUsers } from '../../redux/users/users.thunk';
 import { clearPendingUpdate } from '../../redux/users/users.slice';
 import {
   selectUsers,
+  selectLoadingUsers,
   selectPendingUpdate,
 } from '../../redux/users/users.selector';
 
@@ -17,6 +18,7 @@ export const UsersList = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const users = useSelector(selectUsers);
+  const loadingUsers = useSelector(selectLoadingUsers);
   const pendingUpdate = useSelector(selectPendingUpdate);
 
   // Avanzar a la siguiente pagina.
@@ -37,33 +39,39 @@ export const UsersList = () => {
 
   return (
     <>
-      <div className="users-list">
-        <div className="users-list__row users-list__row--header">
-          <div className="users-list__cell users-list__cell--header">
-            Nombre
-          </div>
-          <div className="users-list__cell users-list__cell--header">
-            Descripción
-          </div>
-        </div>
-        {users.map(({ id, photo, name, description }) => {
-          return (
-            <div className="users-list__row users-list__row--body" key={id}>
-              <div className="users-list__cell users-list__cell--user">
-                <User name={name} image={photo} id={id} />
+      {loadingUsers ? (
+        <div>Cargando datos...</div>
+      ) : (
+        <>
+          <div className="users-list">
+            <div className="users-list__row users-list__row--header">
+              <div className="users-list__cell users-list__cell--header">
+                Nombre
               </div>
-              <div className="users-list__cell">{description}</div>
+              <div className="users-list__cell users-list__cell--header">
+                Descripción
+              </div>
             </div>
-          );
-        })}
-      </div>
-      <Spacer space="1rem" />
-      <Pagination
-        currentPage={page}
-        enableNext={users.length > 7}
-        nextPage={nextPageHandler}
-        prevPage={prevPageHandler}
-      />
+            {users.map(({ id, photo, name, description }) => {
+              return (
+                <div className="users-list__row users-list__row--body" key={id}>
+                  <div className="users-list__cell users-list__cell--user">
+                    <User name={name} image={photo} id={id} />
+                  </div>
+                  <div className="users-list__cell">{description}</div>
+                </div>
+              );
+            })}
+          </div>
+          <Spacer space="1rem" />
+          <Pagination
+            currentPage={page}
+            enableNext={users.length > 7}
+            nextPage={nextPageHandler}
+            prevPage={prevPageHandler}
+          />
+        </>
+      )}
     </>
   );
 };
