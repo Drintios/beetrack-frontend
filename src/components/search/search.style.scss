@@ -1,0 +1,24 @@
+.search {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  gap: 0.5rem;
+  background-color: var(--color-white);
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    color: var(--color-honey);
+
+    &--clear {
+      cursor: pointer;
+    }
+  }
+
+  &__input {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    box-shadow: 0;
+  }
+}

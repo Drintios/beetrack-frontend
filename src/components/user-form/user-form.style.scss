@@ -1,0 +1,10 @@
+.user-form {
+  display: flex;
+  flex-direction: column;
+
+  &__action {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+}

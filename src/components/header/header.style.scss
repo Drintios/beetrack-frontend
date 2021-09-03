@@ -1,0 +1,11 @@
+.header {
+  &__title {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+
+    &--strong {
+      font-weight: 700;
+    }
+  }
+}

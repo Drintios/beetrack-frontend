@@ -1,0 +1,20 @@
+:root {
+  // Colors.
+  --color-red: hsl(0, 100%, 50%);
+  --color-black-20: hsla(0, 0%, 0%, 0.2);
+  --color-white: hsl(0, 0%, 100%);
+  --color-gainsboro: hsl(0, 0%, 90%);
+  --color-dim-gray: hsl(0, 0%, 38%);
+  --color-honey: hsl(38, 95%, 61%);
+  --color-honey-dark: hsl(38, 95%, 41%);
+
+  // Fonts.
+  --font-size-base: 1rem;
+  --font-size-l: 1.25rem;
+  --font-size-xl: 2rem;
+
+  // Shadow.
+  --shadow-1: -2px 2px 5px 0 var(--color-dim-gray);
+  --shadow-2: 2px 0 3px 0 var(--color-gainsboro);
+  --shadow-3: 0 1px 2px 0 var(--color-gainsboro);
+}

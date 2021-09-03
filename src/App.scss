@@ -1,0 +1,14 @@
+@import "_variables.scss";
+@import "_fonts.scss";
+
+body {
+  padding: 2rem 4rem;
+  color: var(--color-dim-gray);
+  background-color: var(--color-gainsboro);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
